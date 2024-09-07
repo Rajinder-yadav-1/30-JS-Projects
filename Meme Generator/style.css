@@ -98,3 +98,45 @@ h2 {
 .emoji.half-out {
     overflow: hidden; 
 }
+
+
+@media (max-width: 768px) {
+    .box {
+        width: 90%;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .meme-btn {
+        font-size: 20px;
+        padding: 10px 20px;
+        bottom: 20px;
+    }
+
+    .meme .img {
+        max-width: 100%;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .meme-btn {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .meme .img {
+        max-height: 200px;
+    }
+}
