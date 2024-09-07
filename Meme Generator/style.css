@@ -12,13 +12,12 @@
 
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #111;
     background-image: url("./c09d1484416b8c3ae9326341f5a68535.jpg");
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .box {
@@ -26,16 +25,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 700px;
-    width: 500px;
     position: relative;
+    max-width: 90vw; /* Adjust width to prevent overflow */
+    max-height: 90vh; /* Ensure the box height doesn’t overflow the viewport */
     z-index: 1;
 }
 
 .meme .img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    max-width: 100%; /* Ensure image scales with screen width */
+    max-height: 100%; /* Ensure the image scales with screen height */
+    object-fit: contain; /* Ensure the image keeps its aspect ratio */
     border-radius: 20px;
     display: block;
     margin: 0 auto;
@@ -44,7 +43,7 @@ body {
 h2 {
     font-size: 30px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: white;
     backdrop-filter: blur(3px); 
     padding: 5px; 
@@ -52,16 +51,16 @@ h2 {
 }
 
 .meme-btn {
-    font-size: 30px;
+    font-size: 24px;
     border: 1px solid black;
-    padding: 10px 50px;
+    padding: 10px 30px;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
     position: fixed;
-    bottom: 50px;
+    bottom: 20px; /* Ensure it's fixed near the bottom */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Center the button horizontally */
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -70,7 +69,7 @@ h2 {
     color: white;
 }
 
-/* Randomly positioned emojis with random sizes, some behind the meme */
+/* Emojis */
 .emoji-container {
     position: absolute;
     top: 0;
@@ -82,10 +81,9 @@ h2 {
 
 .emoji {
     position: absolute;
-    z-index: -3; 
+    z-index: 0;
     opacity: 0.9;
 }
-
 
 .emoji.below {
     z-index: -1;
@@ -96,29 +94,33 @@ h2 {
 }
 
 .emoji.half-out {
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-
+/* Responsiveness for smaller screens */
 @media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Ensure content is stacked vertically */
+    }
+
     .box {
-        width: 90%;
-        height: auto;
+        width: 100%; /* Make box fit the width of the screen */
+        height: auto; /* Allow height to adjust */
+    }
+
+    .meme .img {
+        max-height: 70vh; /* Limit the height of the image */
+        width: 100%; /* Make it fill the available space */
     }
 
     h2 {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .meme-btn {
         font-size: 20px;
-        padding: 10px 20px;
-        bottom: 20px;
-    }
-
-    .meme .img {
-        max-width: 100%;
-        max-height: 300px;
+        padding: 8px 20px;
+        bottom: 10px;
     }
 }
 
@@ -134,9 +136,19 @@ h2 {
     .meme-btn {
         font-size: 18px;
         padding: 8px 15px;
+        bottom: 5px;
     }
 
     .meme .img {
-        max-height: 200px;
+        max-height: 60vh; /* Further restrict image height for smaller screens */
+        width: 100%; /* Full width of the screen */
+    }
+}
+
+/* For larger screens to prevent overflow */
+@media (min-width: 1024px) {
+    .meme .img {
+        max-width: 70vw;  /* Ensure image doesn't overflow the screen width */
+        max-height: 70vh; /* Ensure image doesn't overflow the screen height */
     }
 }
