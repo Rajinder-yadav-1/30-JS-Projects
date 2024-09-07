@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "gilroy";
+}
+
+@font-face {
+    font-family: "gilroy";
+    src: url("../Gilroy-Medium.ttf");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    background-image: url("./c09d1484416b8c3ae9326341f5a68535.jpg");
+    overflow: hidden;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    width: 500px;
+    position: relative;
+    z-index: 1;
+}
+
+.meme .img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    backdrop-filter: blur(3px); 
+    padding: 5px; 
+    border-radius: 15px;
+}
+
+.meme-btn {
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 10px 50px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.meme-btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Randomly positioned emojis with random sizes, some behind the meme */
+.emoji-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.emoji {
+    position: absolute;
+    z-index: -3; 
+    opacity: 0.9;
+}
+
+
+.emoji.below {
+    z-index: -1;
+}
+
+.emoji.outside {
+    z-index: -2;
+}
+
+.emoji.half-out {
+    overflow: hidden; 
+}
